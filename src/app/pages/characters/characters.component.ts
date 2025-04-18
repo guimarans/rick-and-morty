@@ -21,6 +21,8 @@ export class CharactersComponent {
     this.service.getCharacters().subscribe({
       next: (res) => {
         this.characterList = res.results;
+
+        console.log('character', this.characterList);
       },
       error: (err) => console.error('ERRO: ', err),
     });

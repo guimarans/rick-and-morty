@@ -1,6 +1,6 @@
 export interface CardData {
-  title: string;
-  content?: string;
-  subtitle?: string;
-  imageUrl?: string;
+  name: string;
+  species?: string;
+  created?: string;
+  image?: string;
 }
