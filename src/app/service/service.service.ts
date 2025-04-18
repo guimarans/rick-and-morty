@@ -5,12 +5,19 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ServiceService {
-  private url = 'https://rickandmortyapi.com/api';
+  private url = 'https://rickandmortyapi.com/api/';
 
   constructor(private http: HttpClient) {}
 
-  getCharacters(apiUrl: string = `${this.url}/character`) {
-    console.log('Retorno da api: ', apiUrl);
+  public getCharacters(apiUrl: string = `${this.url}character/`) {
+    return this.http.get<any>(apiUrl);
+  }
+
+  public getLocation(apiUrl: string = `${this.url}location`) {
+    return this.http.get<any>(apiUrl);
+  }
+
+  public getEpisodes(apiUrl: string = `${this.url}episode`) {
     return this.http.get<any>(apiUrl);
   }
 }
