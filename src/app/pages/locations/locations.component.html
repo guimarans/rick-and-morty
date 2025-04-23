@@ -1,8 +1,5 @@
 <section class="wrapper">
     <!-- Só com texto -->
-    <app-card 
-        title="Earth (C-137)" 
-        content="Planet"
-    >
+    <app-card *ngFor="let location of locationList" [data]="location" type="location">
     </app-card>
 </section>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { CardData } from '../../shared/interface/card.interface';
-import { ServiceService } from '../../service/service.service';
+import { CardCharacter } from '../../shared/interface/card.interface';
+import { RickAndMortyService } from '../../service/service.service';
 
 @Component({
   selector: 'app-characters',
@@ -9,22 +9,22 @@ import { ServiceService } from '../../service/service.service';
   styleUrl: './characters.component.scss',
 })
 export class CharactersComponent {
-  characterList: CardData[] = [];
+  characterList: CardCharacter[] = [];
 
-  constructor(private service: ServiceService) {}
+  constructor(private readonly service: RickAndMortyService) {}
 
   ngOnInit(): void {
-    this.onCharacter();
+    this.loadCharacter();
   }
 
-  public onCharacter(): void {
+  private loadCharacter(): void {
     this.service.getCharacters().subscribe({
       next: (res) => {
         this.characterList = res.results;
 
         console.log('character', this.characterList);
       },
-      error: (err) => console.error('ERRO: ', err),
+      error: (err) => console.error('ERRO CHARACTER: ', err),
     });
   }
 }

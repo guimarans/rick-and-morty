@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { ServiceService } from '../../service/service.service';
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-template',
@@ -7,33 +8,35 @@ import { ServiceService } from '../../service/service.service';
   templateUrl: './template.component.html',
   styleUrl: './template.component.scss',
 })
-export class TemplateComponent {
-  constructor(private service: ServiceService) {}
+export class TemplateComponent implements OnInit {
+  currentRoute: string = '';
+  bannerImage: string = '';
+
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
-    this.onInfo();
-    this.onLocation();
-    this.onEpisodes();
-  }
+    // já pega a rota no início
+    this.currentRoute = this.router.url;
+    this.setBannerImage();
 
-  public onInfo() {
-    this.service.getCharacters().subscribe({
-      next: (res) => console.log('Resposta das infos: ', res.info),
-      error: (err) => console.error('ERRO: ', err),
+    // e continua ouvindo as mudanças futuras de rota
+    this.router.events.subscribe(() => {
+      this.currentRoute = this.router.url;
+      this.setBannerImage();
     });
   }
 
-  public onLocation() {
-    this.service.getLocation().subscribe({
-      next: (res) => console.log('Resposta da localização: ', res),
-      error: (err) => console.error('Erro: ', err),
-    });
-  }
-
-  public onEpisodes() {
-    this.service.getEpisodes().subscribe({
-      next: (res) => console.log('Resposta da episodios: ', res),
-      error: (err) => console.error('Erro: ', err),
-    });
+  private setBannerImage(): void {
+    if (this.currentRoute === '/' || this.currentRoute === '') {
+      this.bannerImage = '/assets/characters-banner.png'; // ou qualquer imagem da home
+    } else if (this.currentRoute.includes('/characters')) {
+      this.bannerImage = '/assets/characters-banner.png';
+    } else if (this.currentRoute.includes('/episodes')) {
+      this.bannerImage = '/assets/episodes-banner.png';
+    } else if (this.currentRoute.includes('/locations')) {
+      this.bannerImage = '/assets/locations-banner.png';
+    } else {
+      this.bannerImage = '/assets/characters-banner.png'; // fallback
+    }
   }
 }

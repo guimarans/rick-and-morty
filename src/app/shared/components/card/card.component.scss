@@ -20,7 +20,18 @@
     }
 
     &__content {
+        display: flex;
         padding: 1rem;
+        gap: 6px;
+        flex-direction: column;
+        box-sizing: border-box;
+        &--info {
+            width: 240px;
+            min-height: 128px;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
     }
 
     &__title {

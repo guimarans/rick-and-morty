@@ -1,11 +1,31 @@
 <div class="card">
-    <ng-container *ngIf="data.image">
-        <img [src]="data.image" [alt]="data.name" class="card__img" />
+
+    <!-- Personagem -->
+    <ng-container *ngIf="character">
+        <figure class="card__media">
+            <img *ngIf="character.image" [src]="character.image" [alt]="character.name" class="card__img" />
+            <figcaption class="card__content">
+                <h2 class="card__title">{{ character.name }}</h2>
+                <p class="card__text">{{ character.species }}</p>
+            </figcaption>
+        </figure>
     </ng-container>
 
-    <div class="card__content">
-        <h2 class="card__title">{{ data.name }}</h2>
-        <p class="card__text">{{ data.species }}</p>
-        <p class="card__subtitle">{{ data.created }}</p>
-    </div>
+    <!-- Episódio -->
+    <ng-container *ngIf="episode">
+        <section class="card__content card__content--info">
+            <h2 class="card__title">{{ episode.name }}</h2>
+            <p class="card__text">{{ episode.air_date }}</p>
+            <p class="card__subtitle">{{ episode.episode }}</p>
+        </section>
+    </ng-container>
+
+    <!-- Localização -->
+    <ng-container *ngIf="location">
+        <section class="card__content card__content--info">
+            <h2 class="card__title">{{ location.name }}</h2>
+            <p class="card__text">{{ location.type }}</p>
+        </section>
+    </ng-container>
+
 </div>

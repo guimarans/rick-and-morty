@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class ServiceService {
-  private url = 'https://rickandmortyapi.com/api/';
+export class RickAndMortyService {
+  private readonly url = 'https://rickandmortyapi.com/api/';
 
   constructor(private http: HttpClient) {}
 
@@ -13,11 +13,11 @@ export class ServiceService {
     return this.http.get<any>(apiUrl);
   }
 
-  public getLocation(apiUrl: string = `${this.url}location`) {
+  public getLocation(apiUrl: string = `${this.url}location/`) {
     return this.http.get<any>(apiUrl);
   }
 
-  public getEpisodes(apiUrl: string = `${this.url}episode`) {
+  public getEpisodes(apiUrl: string = `${this.url}episode/`) {
     return this.http.get<any>(apiUrl);
   }
 }

@@ -1,9 +1,5 @@
 <section class="wrapper">
     <!-- Só com texto -->
-    <app-card 
-        title="Pilot" 
-        content="December 2, 2013" 
-        subtitle="SE01E01"
-    >
+    <app-card *ngFor="let episode of episodeList" [data]="episode" type="episode">
     </app-card>
 </section>

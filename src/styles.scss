@@ -52,5 +52,17 @@ main.container {
   flex-wrap: wrap;
   justify-content: center;
   gap: 32px;
-  padding: 3rem 0;
+  padding: 1rem 0 3rem;
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  &__img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+  }
 }
