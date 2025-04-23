@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CardEpisodes } from '../../shared/interface/card.interface';
-import { RickAndMortyService } from '../../service/service.service';
+import { RickAndMortyService } from '../../service/RickAndMorty.service';
 
 @Component({
   selector: 'app-episodes',
