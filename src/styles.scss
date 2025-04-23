@@ -1,48 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 *,
 body {
-    font-family: "Roboto", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    margin: 0;
-    padding: 0;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
 }
 
 .layout {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .container {
-    display: grid !important;
-    width: 100%;
-    padding: 0 1rem;
-    margin: 0 auto;
+  display: grid !important;
+  width: 100%;
+  padding: 0 1rem;
+  margin: 0 auto;
 
-    @media (min-width: 576px) {
-        max-width: 540px;
-    }
+  @media (min-width: 576px) {
+    max-width: 540px;
+  }
 
-    @media (min-width: 768px) {
-        max-width: 720px;
-    }
+  @media (min-width: 768px) {
+    max-width: 720px;
+  }
 
-    @media (min-width: 992px) {
-        max-width: 960px;
-    }
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
 
-    @media (min-width: 1200px) {
-        max-width: 1140px;
-    }
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
 
-    @media (min-width: 1400px) {
-        max-width: 1320px;
-    }
+  @media (min-width: 1400px) {
+    max-width: 1320px;
+  }
 }
 
 main.container {
-    flex: 1;
+  flex: 1;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  padding: 3rem 0;
 }
